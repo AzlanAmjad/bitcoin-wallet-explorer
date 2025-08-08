@@ -10,12 +10,19 @@ function createWindow() {
     height: 670,
     show: false,
     autoHideMenuBar: true,
+    scrollBounce: true, // for macOS, gives a native feel
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
+      scrollBounce: true // for macOS
     }
   })
+
+  // Hide scrollbars for a cleaner look
+  mainWindow.webContents.on('did-finish-load', () => {
+    mainWindow.webContents.insertCSS('body::-webkit-scrollbar { display: none !important; }');
+  });
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
