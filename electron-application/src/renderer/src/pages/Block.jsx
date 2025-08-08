@@ -17,6 +17,7 @@ const Block = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
     setLoading(true);
     setBlockError(null);
     setStatusError(null);
@@ -43,7 +44,7 @@ const Block = () => {
   }, [blockHash]);
 
   return (
-    <div className="max-w-3xl mx-auto py-8 px-4 flex flex-col gap-6">
+    <div className="max-w-4xl mx-auto py-8 px-4 flex flex-col gap-8">
       {/* Title and Blockchain Image */}
       <div className="flex items-center gap-4 mb-2">
         <img src={blockchainLogo} alt="Blockchain" className="h-12 w-12 object-contain" />
@@ -53,7 +54,7 @@ const Block = () => {
       </div>
 
       {/* Block Info Panel */}
-      <div className="bg-white rounded shadow p-6 flex flex-col gap-2">
+      <div className="bg-white rounded shadow p-8 md:p-10 flex flex-col gap-2 max-w-2xl w-full self-center">
         <div className="text-lg font-semibold text-gray-800 mb-2">Block Details</div>
         {blockError ? (
           <div className="text-red-500">{blockError}</div>
@@ -152,7 +153,7 @@ const Block = () => {
       </div>
 
       {/* Block Status Panel */}
-      <div className="bg-white rounded shadow p-6 flex flex-col gap-2">
+      <div className="bg-white rounded shadow p-8 md:p-10 flex flex-col gap-2 max-w-2xl w-full self-center">
         <div className="text-lg font-semibold text-gray-800 mb-2">Block Status</div>
         {statusError ? (
           <div className="text-red-500">{statusError}</div>
@@ -171,7 +172,9 @@ const Block = () => {
               </tr>
               <tr>
                 <th className="pr-4 py-1 text-gray-600 font-medium">Next Block Hash:</th>
-                <td className="py-1">{status.next_best || <span className="text-gray-400">None</span>}</td>
+                <td className="py-1 font-mono break-all text-blue-500">
+                  {status.next_best || <span className="text-gray-400">None</span>}
+                </td>
               </tr>
             </tbody>
           </table>

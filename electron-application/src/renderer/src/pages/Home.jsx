@@ -118,7 +118,7 @@ const Home = () => {
 
       {/* Blockchain stats panel */}
       <div className="flex flex-col sm:flex-row gap-4 mb-8">
-        <div className="bg-white rounded shadow p-4 flex-1 flex flex-col items-center">
+        <div className="bg-white rounded shadow p-6 md:p-8 flex-1 flex flex-col items-center max-w-xl w-full">
           <span className="text-xs text-gray-500">Block Height</span>
           {blocksError ? (
             <span className="text-xs text-red-500">Error</span>
@@ -128,7 +128,7 @@ const Home = () => {
             <span className="text-xl font-bold">{blocks[0].height}</span>
           )}
         </div>
-        <div className="bg-white rounded shadow p-4 flex-1 flex flex-col items-center">
+        <div className="bg-white rounded shadow p-6 md:p-8 flex-1 flex flex-col items-center max-w-xl w-full">
           <span className="text-xs text-gray-500">Latest Block Hash</span>
           {blocksError ? (
             <span className="text-xs text-red-500">Error</span>
@@ -138,7 +138,7 @@ const Home = () => {
             <span className="text-xs font-mono break-all text-gray-700">{blocks[0].id}</span>
           )}
         </div>
-        <div className="bg-white rounded shadow p-4 flex-1 flex flex-col items-center">
+        <div className="bg-white rounded shadow p-6 md:p-8 flex-1 flex flex-col items-center max-w-xl w-full">
           <span className="text-xs text-gray-500">Mempool TX Count</span>
           {mempoolError ? (
             <span className="text-xs text-red-500">Error</span>
@@ -152,7 +152,7 @@ const Home = () => {
 
       {/* Chart and Clanker Insights */}
       <div className="flex flex-col md:flex-row gap-6 mb-8">
-        <div className="bg-white rounded shadow p-4 flex-1 flex flex-col min-w-0">
+        <div className="bg-white rounded shadow p-6 md:p-8 flex-1 flex flex-col min-w-0 max-w-2xl w-full">
           <div className="flex items-center justify-between mb-2">
             <span className="font-semibold text-gray-800">30 Day BTC Price Chart</span>
             <span className="text-xs text-gray-400">powered by CoinGecko</span>

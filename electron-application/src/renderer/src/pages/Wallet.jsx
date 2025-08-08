@@ -80,7 +80,7 @@ const Wallet = () => {
 
       {/* Address Stats */}
       {walletInfo && (
-        <div className="bg-white rounded shadow p-6 mb-4">
+        <div className="bg-white rounded shadow p-8 md:p-10 mb-6 max-w-2xl w-full self-center">
           <div className="text-lg font-semibold text-gray-800 mb-2">Address Stats</div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-sm">
             <div><span className="font-medium text-gray-600">Total Transactions:</span> {walletInfo.chain_stats.tx_count + walletInfo.mempool_stats.tx_count}</div>
@@ -93,7 +93,7 @@ const Wallet = () => {
       )}
 
       {/* Transactions Table */}
-      <div className="bg-white rounded shadow p-6 mb-8">
+      <div className="bg-white rounded shadow p-8 md:p-10 mb-10 max-w-2xl w-full self-center">
         <div className="text-lg font-semibold text-gray-800 mb-2">Transactions</div>
         {txsError ? (
           <div className="text-red-500">{txsError}</div>
