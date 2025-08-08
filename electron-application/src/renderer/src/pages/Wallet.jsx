@@ -24,7 +24,10 @@ const Wallet = () => {
     // Get wallet info
     axios.get(`https://blockstream.info/api/address/${address}`)
       .then(res => setWalletInfo(res.data))
-      .catch(() => setWalletError('Failed to load wallet info.'));
+      .catch((err) => {
+        setWalletError('Failed to load wallet info.');
+        console.error('Failed to load wallet info:', err);
+      });
     // Get spot price
     axios.get('https://api.coinbase.com/v2/prices/BTC-USD/spot')
       .then(res => {
@@ -34,11 +37,17 @@ const Wallet = () => {
           setSpotError('Failed to load spot price');
         }
       })
-      .catch(() => setSpotError('Failed to load spot price'));
+      .catch((err) => {
+        setSpotError('Failed to load spot price');
+        console.error('Failed to load spot price:', err);
+      });
     // Get transactions
     axios.get(`https://blockstream.info/api/address/${address}/txs`)
       .then(res => setTxs(res.data))
-      .catch(() => setTxsError('Failed to load transactions.'));
+      .catch((err) => {
+        setTxsError('Failed to load transactions.');
+        console.error('Failed to load transactions:', err);
+      });
     setLoading(false);
   }, [address]);
 

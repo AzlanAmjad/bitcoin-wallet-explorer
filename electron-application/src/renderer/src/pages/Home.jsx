@@ -39,6 +39,7 @@ const Home = () => {
       .catch(() => {
         setError('Failed to load price data');
         setLoading(false);
+        console.error('Failed to load price data');
       });
     axios.get('https://api.coinbase.com/v2/prices/BTC-USD/spot')
       .then(res => {
@@ -50,6 +51,7 @@ const Home = () => {
       })
       .catch(() => {
         setSpotError('Failed to load spot price');
+        console.error('Failed to load spot price');
       });
 
     // Fetch latest blocks from Blockstream API
@@ -59,6 +61,7 @@ const Home = () => {
       })
       .catch(() => {
         setBlocksError('Failed to load latest blocks');
+        console.error('Failed to load latest blocks');
       });
 
     // Fetch mempool stats from Blockstream API
@@ -68,6 +71,7 @@ const Home = () => {
       })
       .catch(() => {
         setMempoolError('Failed to load mempool stats');
+        console.error('Failed to load mempool stats');
       });
   }, []);
 

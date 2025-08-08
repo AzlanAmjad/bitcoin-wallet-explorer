@@ -25,10 +25,16 @@ const Block = () => {
     setMiningAddressError(null);
     axios.get(`https://blockstream.info/api/block/${blockHash}`)
       .then(res => setBlock(res.data))
-      .catch(() => setBlockError('Failed to load block data.'));
+      .catch((err) => {
+        setBlockError('Failed to load block data.');
+        console.error('Failed to load block data:', err);
+      });
     axios.get(`https://blockstream.info/api/block/${blockHash}/status`)
       .then(res => setStatus(res.data))
-      .catch(() => setStatusError('Failed to load block status.'));
+      .catch((err) => {
+        setStatusError('Failed to load block status.');
+        console.error('Failed to load block status:', err);
+      });
     // Fetch coinbase tx to get mining address
     axios.get(`https://blockstream.info/api/block/${blockHash}/txs/0`)
       .then(res => {
@@ -39,7 +45,10 @@ const Block = () => {
           setMiningAddressError('No mining address found');
         }
       })
-      .catch(() => setMiningAddressError('Failed to load mining address'));
+      .catch((err) => {
+        setMiningAddressError('Failed to load mining address');
+        console.error('Failed to load mining address:', err);
+      });
     setLoading(false);
   }, [blockHash]);
 
