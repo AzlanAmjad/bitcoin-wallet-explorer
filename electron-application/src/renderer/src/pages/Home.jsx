@@ -16,17 +16,7 @@ import bitcoinLogo from '../assets/bitcoin2.png';
 import ClankerInsights from '../components/ClankerInsights';
 import { useNavigate } from 'react-router';
 
-ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, Filler);
-
-
-
-const MOCK_STATS = {
-  height: 850000,
-  latestHash: '0000000000000000000a1b2c3d4e5f6g7h8i9j0k',
-  mempoolTx: 12345,
-};
-
-
+ChartJS.register(LineElement, CategoryScale, LinearScale, PointElement, Tooltip, Legend, Filler);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 
 const Home = () => {
   const [priceData, setPriceData] = useState(null);
@@ -180,7 +170,7 @@ const Home = () => {
           )}
         </div>
         <div className="flex-shrink-0 w-80">
-          <ClankerInsights />
+        <ClankerInsights className="w-full md:w-80" />
         </div>
       </div>
 
